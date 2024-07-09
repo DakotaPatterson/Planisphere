@@ -25,6 +25,7 @@ Planishpere is a comprehensive event planning application designed to help users
 ## Technologies Used
 - **Frontend:**
     - React
+    - CSS Styling:
 - **Backend:**
     - Node.js
     - Express.js
@@ -37,7 +38,7 @@ Planishpere is a comprehensive event planning application designed to help users
 
 ## Process
 ### Wireframe:
-![Wireframe]() 
+![Wireframe](https://osuvirtfsfpt0-isd8647.slack.com/files/U06FQ78S2NB/F07C7JZQZC0/screen_shot_2024-07-08_at_9.11.34_pm.png) 
 ## Future Development
 
 ## License
@@ -47,4 +48,4 @@ Planishpere is a comprehensive event planning application designed to help users
 ## Credits
 
 ## Links
-[Repository](https://github.com/Masonmanshark4/Planisphere.git)
+[GitHub Repository](https://github.com/Masonmanshark4/Planisphere.git)
