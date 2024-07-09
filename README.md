@@ -2,6 +2,17 @@
 
 **Where every event find its orbit.**
 
+## Table of Contents
+- [Description](#description)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Process](#process)
+- [Future Development](#future-development)
+- [License](#license)
+- [Authors](#authors)
+- [Credits](#credits)
+- [Links](#links)
+
 ## Description
 Planishpere is a comprehensive event planning application designed to help users organize and manage events seamlessley. Whethere it's a birthday party, wedding, graduation, or any other special occasionan, Planisphere offers an intuitve platform to organize venues, budget, and track tasks for your events. 
 
@@ -26,7 +37,7 @@ Planishpere is a comprehensive event planning application designed to help users
 
 ## Process
 ### Wireframe:
-![Wireframe] () 
+![Wireframe]() 
 ## Future Development
 
 ## License
@@ -36,4 +47,4 @@ Planishpere is a comprehensive event planning application designed to help users
 ## Credits
 
 ## Links
-[Repository] (https://github.com/Masonmanshark4/Planisphere.git)
+[Repository](https://github.com/Masonmanshark4/Planisphere.git)
