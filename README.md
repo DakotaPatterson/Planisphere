@@ -18,7 +18,7 @@ Planishpere is a comprehensive event planning application designed to help users
 
 ## Features
 - **User Authentication:** Secure registration and user login using JWT
-- **Event Management:*** Create, update, delete, and view events.
+- **Event Management:** Create, update, delete, and view events.
 - **Budget Tracking:**
 - **Responsive Design:**
 
@@ -49,3 +49,4 @@ Planishpere is a comprehensive event planning application designed to help users
 
 ## Links
 [GitHub Repository](https://github.com/Masonmanshark4/Planisphere.git)
+[Deployment with Render](https://planisphere.onrender.com/)
