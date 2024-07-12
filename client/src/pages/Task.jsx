@@ -28,7 +28,7 @@ export default function Task() {
   return (
     <Box p={4} bg="purple.800" color="white" borderRadius="md" boxShadow="lg">
       <Heading as="h1" size="xl" mb={4}>
-        Planisphere
+        Task Navigator
       </Heading>
       <Text mb={4}>Tasks:</Text>
 
@@ -36,9 +36,16 @@ export default function Task() {
         {tasks.map((task, index) => (
           <HStack key={index} spacing={4}>
             <Checkbox
-            isChecked={task.completed}
-            onChange={() => handleAddTask(index)}/>
-            <Text as={task.completed ? 's' : undefined}>{task.text}</Text>
+              isChecked={task.completed}
+              onChange={() => handleAddTask(index)}
+              colorScheme="cyan"
+            />
+            <Text as={task.completed ? 's' : undefined}
+            fontSize="md"
+            textDecoration={task.completed ? 'line-through' : 'none'}
+            >
+              {task.text}
+              </Text>
           </HStack>
         ))}
       </VStack>
@@ -48,7 +55,14 @@ export default function Task() {
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
           placeholder="New Task"/>
-        <Button onClick={handleAddTask} colorScheme="blue">
+          bg="purple.700"
+          color="white"
+          borderRadius="md"
+          border="none"
+          _placeholder={{ color: 'gray.300' }}
+        />
+      
+        <Button onClick={handleAddTask} colorScheme="blue" variant="outline">
           Add Task
         </Button>
       </HStack> 
