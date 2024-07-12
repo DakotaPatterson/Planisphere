@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box, Heading, Text, Button, VStack } from '@chakra-ui/react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Error() {
-  const history = useHistory();
+  const history = useNavigate();
 
   const handleGoBack = () => {
     history.push('/');

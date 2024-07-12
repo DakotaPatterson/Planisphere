@@ -12,7 +12,7 @@ export default function Task() {
     }
   };
 
-  const handleToggleTask = (index) ==> {
+    const handleToggleTask = (index) ==> {
     const updatedTasks = tasks.map((task, i) =>
     i === index ? { ...task, completed: !task.completed } : task
   );
@@ -26,5 +26,19 @@ export default function Task() {
       </Heading>
       <Text mb={4}>Tasks:</Text>
 
-      <VStack spacing={4} aign="stretch"
+      <VStack spacing={4} align="stretch">
+        {tasks.map((task, index) => (
+          <HStack key={index} spacing={4}>
+            <Checkbox
+            isChecked={task.completed}
+            onChange={() => handleAddTask(index)}/>
+            <Text as={task.completed ? 's' : undefined}>{task.text}</Text>
+          </HStack>
+        ))}
+      </VStack>
+
+      <HStack mt={4}>
+        <Input
+          value={newTask}
+      </HStack>
     </Box>
