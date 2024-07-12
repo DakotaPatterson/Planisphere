@@ -12,11 +12,11 @@ export default function Task() {
     }
   };
 
-    const handleToggleTask = (index) ==> {
+    const handleToggleTask = (index) => {
     const updatedTasks = tasks.map((task, i) =>
     i === index ? { ...task, completed: !task.completed } : task
-  );
-  setTasks(updatedTasks);
+    );
+    setTasks(updatedTasks);
   };
 
   return (
@@ -40,5 +40,12 @@ export default function Task() {
       <HStack mt={4}>
         <Input
           value={newTask}
-      </HStack>
+          onChange={(e) => setNewTask(e.target.value)}
+          placeholder="New Task"/>
+        <Button onClick={handleAddTask} colorScheme="blue">
+          Add Task
+        </Button>
+      </HStack> 
     </Box>
+  );
+}
