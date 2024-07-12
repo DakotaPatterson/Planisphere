@@ -1,13 +1,30 @@
+import React, { useState } from 'react';
+import { Box, Heading, Text, Input, Button, VStack, HStack, Checkbox } from '@chakra-ui/react';
 
 export default function Task() {
-    return (
-      <div>
-        <h1>Planishpere</h1>
-   
-        <p>
-          Hello
-        </p>
-      </div>
-    );
-  }
-  
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState('');
+
+  const handleAddTask = () => {
+    if (newTask.trim() !== '') {
+      setTasks([...tasks, { text: newTask, completed: false }]);
+      setNewTask('');
+    }
+  };
+
+  const handleToggleTask = (index) ==> {
+    const updatedTasks = tasks.map((task, i) =>
+    i === index ? { ...task, completed: !task.completed } : task
+  );
+  setTasks(updatedTasks);
+  };
+
+  return (
+    <Box p={4}>
+      <Heading as="h1" size="xl" mb={4}>
+        Planisphere
+      </Heading>
+      <Text mb={4}>Tasks:</Text>
+
+      <VStack spacing={4} aign="stretch"
+    </Box>
