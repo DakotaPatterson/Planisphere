@@ -1,4 +1,5 @@
 const { Profile } = require('../models');
+const { Budget } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -16,6 +17,10 @@ const resolvers = {
         return Profile.findOne({ _id: context.user._id });
       }
       throw AuthenticationError;
+    },
+
+    getBudget: async () => {
+      return await Budget.findOne();
     },
   },
 
@@ -49,6 +54,20 @@ const resolvers = {
         return Profile.findOneAndDelete({ _id: context.user._id });
       }
       throw AuthenticationError;
+    },
+
+    setBudget: async (_, { totalBudget, categories }) => {
+      const budget = await Budget.findOne();
+      if (budget) {
+        budget.totalBudget = totalBudget;
+        budget.categories = categories;
+        await budget.save();
+        return budget;
+      } else {
+        const newBudget = new Budget({ totalBudget, categories });
+        await newBudget.save();
+        return newBudget;
+      }
     },
   },
 };

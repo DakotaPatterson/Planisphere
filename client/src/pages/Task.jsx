@@ -54,7 +54,7 @@ export default function Task() {
         <Input
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
-          placeholder="New Task"/>
+          placeholder="New Task"
           bg="purple.700"
           color="white"
           borderRadius="md"
