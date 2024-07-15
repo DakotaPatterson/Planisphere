@@ -25,7 +25,6 @@ Planishpere is a comprehensive event planning application designed to help users
 - **Event Management:** Create, update, delete, and view events.
 - **Budget Tracking:**
 - **Responsive Design:**
-
 - **Frontend:**
   - React
   - CSS Styling:
@@ -46,7 +45,7 @@ Planishpere is a comprehensive event planning application designed to help users
 
 ### Wireframe:
 
-## Future Development
+
 
 ![Wireframe](lh3.googleusercontent.com/pw/AP1GczOZuR5XWAXunsdYAGB2OUqpLaVAP_5akI54kBVbtt0GCP9ec32iOyqYcUh9om5nEED-CO8I-rENUknJVpYldi9Oqrid1Ib4dpdtG8VlSZUcFq9VjGHeS3aw47AGBFFtjIX7Tcyig8mOarcmyALDWG5Spg=w312-h482-s-no-gm?authuser=0)
 

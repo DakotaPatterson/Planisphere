@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import eventServices from '../../../services/eventServices';
 
@@ -7,7 +7,7 @@ const Create = () => {
     const [description, setDescription] = useState('');
     const [date, setDate] = useState('');
     const [location, setLocation] = useState('');
-    cosnt [budget, setBudget] = useState('');
+    const [budget, setBudget] = useState('');
     const history = useHistory();
 
     const handleSubmit = async (e) => {
