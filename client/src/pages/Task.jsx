@@ -37,7 +37,7 @@ export default function Task() {
           <HStack key={index} spacing={4}>
             <Checkbox
               isChecked={task.completed}
-              onChange={() => handleAddTask(index)}
+              onChange={() => handleToggleTask(index)}
               colorScheme="cyan"
             />
             <Text as={task.completed ? 's' : undefined}
