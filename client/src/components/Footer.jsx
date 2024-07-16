@@ -3,7 +3,7 @@ import { Box, Text, Center } from '@chakra-ui/react';
 
 const Footer = () => {
   return (
-    <Box as="footer" py="4" bg="gray.100">
+    <Box as="footer" py="4" bg="orange">
       <Center>
         <Text fontSize="sm" color="gray.600">
           2024 Planisphere, all rights reserved
