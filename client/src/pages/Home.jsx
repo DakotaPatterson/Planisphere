@@ -2,8 +2,21 @@
 
 import React from 'react';
 import {
-  Box, Flex, Heading, Text, Button, Grid, GridItem, Tabs, TabList, Tab, TabPanels, TabPanel
+  Box, 
+  Flex, 
+  Heading, 
+  Text, 
+  Button, 
+  Grid, 
+  GridItem, 
+  Tabs, 
+  TabList, 
+  Tab, 
+  TabPanels, 
+  TabPanel
 } from '@chakra-ui/react';
+//import LoginPage from './LoginPage';
+//import RegisterPage from './RegisterPage';
 import Footer from '../components/Footer';
 
 export default function Home() {
