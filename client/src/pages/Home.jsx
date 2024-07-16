@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Box, 
   Flex, 
-  Link,
+  Link as ChakraLink,
   Heading, 
   Text, 
   Grid, 
@@ -10,7 +10,8 @@ import {
   Tabs, 
   TabList, 
   Tab, 
-  extendTheme
+  extendTheme,
+  Image
 } from '@chakra-ui/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import Footer from '../components/Footer';
@@ -54,6 +55,18 @@ const customTheme = extendTheme({
   },
 });
 
+function Budget() {
+  return <Text>Budget content goes here</Text>;
+}
+
+function Tasks() {
+  return <Text>Tasks content goes here</Text>;
+}
+
+function Venues() {
+  return <Text>Venues content goes here</Text>;
+}
+
 export default function Home() {
   return (
     <ChakraProvider theme={customTheme}>
@@ -78,11 +91,23 @@ export default function Home() {
 
         <Tabs variant="enclosed">
           <TabList>
-            <Tab as={Link} to="/budget">Budget</Tab>
-            <Tab as={Link} to="/tasks">Tasks</Tab>
-            <Tab as={Link} to="/venues">Venues</Tab>
+            <Tab>
+              <ChakraLink as={Link} to="/budget">Budget</ChakraLink>
+            </Tab>
+            <Tab> 
+              <ChakraLink as={Link} to="/tasks">Tasks</ChakraLink>
+            </Tab>
+            <Tab>
+              <ChakraLink as={Link} to="/venues">Venues</ChakraLink>
+            </Tab>
           </TabList>
         </Tabs>
+
+        <Switch>
+            <Route path="/budget" component={Budget} />
+            <Route path="/tasks" component={Tasks} />
+            <Route path="/venues" component={Venues} />
+          </Switch>
 
         <Grid templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }} gap={6}>
           {/* Weddings Box */}
