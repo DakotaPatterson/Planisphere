@@ -6,19 +6,22 @@ import {
   Heading, 
   Text, 
   Grid, 
-  GridItem,
+  GridItem, 
   Tabs, 
   TabList, 
   Tab, 
-  extendTheme
+  extendTheme,
+  Image
 } from '@chakra-ui/react';
 import { ChakraProvider } from '@chakra-ui/react';
-//import LoginPage from './LoginPage';
-//import RegisterPage from './RegisterPage';
 import Footer from '../components/Footer';
 
 // Load the Kimberley BL font
 import "../shared/fonts/kimberley bl.otf";
+
+// Import images
+import weddingDalmatians from "../shared/images/wedding.png";
+import llamaDeath from "../shared/images/funerals.png";
 
 const customTheme = extendTheme({
   fonts: {
@@ -52,6 +55,18 @@ const customTheme = extendTheme({
   },
 });
 
+function Budget() {
+  return <Text>Budget content goes here</Text>;
+}
+
+function Tasks() {
+  return <Text>Tasks content goes here</Text>;
+}
+
+function Venues() {
+  return <Text>Venues content goes here</Text>;
+}
+
 export default function Home() {
   return (
     <ChakraProvider theme={customTheme}>
@@ -77,52 +92,75 @@ export default function Home() {
         <Tabs variant="enclosed">
           <TabList>
             <Tab>
-              <ChakraLink as={Link} to="/budget">Budget
+              <ChakraLink as={Link} to="/budget">Budget</ChakraLink>
             </Tab>
             <Tab> 
-              <ChakraLink as={Link} to="/tasks">Tasks
+              <ChakraLink as={Link} to="/tasks">Tasks</ChakraLink>
             </Tab>
             <Tab>
-              <ChakraLink as={Link} to="/venues">Venues
+              <ChakraLink as={Link} to="/venues">Venues</ChakraLink>
             </Tab>
           </TabList>
         </Tabs>
 
+        <Switch>
+            <Route path="/budget" component={Budget} />
+            <Route path="/tasks" component={Tasks} />
+            <Route path="/venues" component={Venues} />
+          </Switch>
+
         <Grid templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }} gap={6}>
+          {/* Weddings Box */}
           <GridItem>
-            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center">
+            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
+              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center">
+                <Heading as="h3" size="md" color="white" textAlign="center">
+                  WEDDINGS
+                </Heading>
+              </Box>
+              <Box position="relative" height="100%" maxH="300px">
+                <Image src={weddingDalmatians} alt="Wedding Dalmatians" w="100%" h="100%" objectFit="cover" />
+              </Box>
+            </Box>
+          </GridItem>
+          
+          {/* Funerals Box */}
+          <GridItem>
+            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
+              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center">
+                <Heading as="h3" size="md" color="white" textAlign="center">
+                  FUNERALS
+                </Heading>
+              </Box>
+              <Box position="relative" height="100%" maxH="300px">
+                <Image src={llamaDeath} alt="Llama Funeral" w="100%" h="100%" objectFit="cover" />
+              </Box>
+            </Box>
+          </GridItem>
+
+          {/* Placeholder Boxes */}
+          <GridItem>
+            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
               <Heading as="h3" size="md" color="white">BIRTHDAYS</Heading>
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" height="100px"></Box>
+              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px"></Box>
             </Box>
           </GridItem>
           <GridItem>
-            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center">
+            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
               <Heading as="h3" size="md" color="white">BACHELOR + BACHELORETTE</Heading>
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" height="100px"></Box>
+              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px"></Box>
             </Box>
           </GridItem>
           <GridItem>
-            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center">
-              <Heading as="h3" size="md" color="white">WEDDINGS</Heading>
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" height="100px"></Box>
-            </Box>
-          </GridItem>
-          <GridItem>
-            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center">
+            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
               <Heading as="h3" size="md" color="white">GRADUATIONS</Heading>
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" height="100px"></Box>
+              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px"></Box>
             </Box>
           </GridItem>
           <GridItem>
-            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center">
+            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
               <Heading as="h3" size="md" color="white">CREATE YOUR OWN EVENT</Heading>
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" height="100px"></Box>
-            </Box>
-          </GridItem>
-          <GridItem>
-            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center">
-              <Heading as="h3" size="md" color="white">FUNERALS</Heading>
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" height="100px"></Box>
+              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px"></Box>
             </Box>
           </GridItem>
         </Grid>
