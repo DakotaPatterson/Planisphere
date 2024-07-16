@@ -111,7 +111,7 @@ export default function Home() {
         </Tabs>
 
           <Routes>
-            <Route path="/home" element={Home} />
+            <Route path="/" element={Home} />
             <Route path="/budget" component={Budget} />
             <Route path="/task" component={Task} />
             <Route path="/venues" component={Venues} />
