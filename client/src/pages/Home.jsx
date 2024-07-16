@@ -96,6 +96,9 @@ export default function Home() {
         <Tabs variant="enclosed">
           <TabList>
             <Tab>
+              <ChakraLink as={Link} to="/home">Home</ChakraLink>
+            </Tab>
+            <Tab>
               <ChakraLink as={Link} to="/budget">Budget</ChakraLink>
             </Tab>
             <Tab>
@@ -107,11 +110,13 @@ export default function Home() {
           </TabList>
         </Tabs>
 
-        <Routes>
-          <Route path="/budget" element={<Budget />} />
-          <Route path="/task" element={<Task />} />
-          <Route path="/venues" element={<Venues />} />
-        </Routes>
+          <Routes>
+            <Route path="/home" element={Home} />
+            <Route path="/budget" component={Budget} />
+            <Route path="/task" component={Task} />
+            <Route path="/venues" component={Venues} />
+          </Routes>
+
 
         <Grid templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }} gap={6}>
           {/* Weddings Box */}
