@@ -2,11 +2,11 @@ import React from 'react';
 import {
   Box, 
   Flex, 
-  Link,
+  Link as ChakraLink,
   Heading, 
   Text, 
   Grid, 
-  GridItem, 
+  GridItem,
   Tabs, 
   TabList, 
   Tab, 
@@ -76,9 +76,15 @@ export default function Home() {
 
         <Tabs variant="enclosed">
           <TabList>
-            <Tab as={Link} to="/budget">Budget</Tab>
-            <Tab as={Link} to="/tasks">Tasks</Tab>
-            <Tab as={Link} to="/venues">Venues</Tab>
+            <Tab>
+              <ChakraLink as={Link} to="/budget">Budget
+            </Tab>
+            <Tab> 
+              <ChakraLink as={Link} to="/tasks">Tasks
+            </Tab>
+            <Tab>
+              <ChakraLink as={Link} to="/venues">Venues
+            </Tab>
           </TabList>
         </Tabs>
 
