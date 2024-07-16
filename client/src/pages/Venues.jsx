@@ -1,56 +1,120 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Heading, Text, VStack } from '@chakra-ui/react';
-import { set } from 'mongoose';
+import React, { useEffect, useRef } from 'react';
+import { useParams } from 'react-router-dom';
+import '../shared/style.css';
 
-export default function Venues() {
-  const [venues, setVenue] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const Venues = () => {
+  const { query } = useParams();
+  const mapRef = useRef(null);
+  const searchInputRef = useRef(null);
 
   useEffect(() => {
-    const fetchVenues = async () => {
-      try {
-        const response = await fetch('https://api.designmynight.com/v4/venues', {
-          headers: {
-            Authorization: ''
-          },
-        });
+    // Load the Google Maps script
+    const loadScript = (url) => {
+      const script = document.createElement('script');
+      script.src = url;
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    };
 
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+    loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places');
+
+    // Initialize the map and search box after the script has loaded
+    const initAutocomplete = () => {
+      const map = new window.google.maps.Map(mapRef.current, {
+        center: { lat: -33.8688, lng: 151.2195 },
+        zoom: 13,
+        mapTypeId: 'roadmap',
+      });
+
+      const input = searchInputRef.current;
+      const searchBox = new window.google.maps.places.SearchBox(input);
+
+      map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(input);
+
+      map.addListener('bounds_changed', () => {
+        searchBox.setBounds(map.getBounds());
+      });
+
+      let markers = [];
+
+      searchBox.addListener('places_changed', () => {
+        const places = searchBox.getPlaces();
+
+        if (places.length === 0) {
+          return;
         }
 
-        const data = await response.json();
-        setVenues(data);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
+        markers.forEach((marker) => {
+          marker.setMap(null);
+        });
+        markers = [];
+
+        const bounds = new window.google.maps.LatLngBounds();
+        places.forEach((place) => {
+          if (!place.geometry || !place.geometry.location) {
+            console.log('Returned place contains no geometry');
+            return;
+          }
+
+          const icon = {
+            url: place.icon,
+            size: new window.google.maps.Size(71, 71),
+            origin: new window.google.maps.Point(0, 0),
+            anchor: new window.google.maps.Point(17, 34),
+            scaledSize: new window.google.maps.Size(25, 25),
+          };
+
+          markers.push(
+            new window.google.maps.Marker({
+              map,
+              icon,
+              title: place.name,
+              position: place.geometry.location,
+            })
+          );
+
+          if (place.geometry.viewport) {
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+          }
+        });
+        map.fitBounds(bounds);
+      });
+
+      if (query) {
+        input.value = query;
+        const event = new Event('input', { bubbles: true });
+        input.dispatchEvent(event);
       }
     };
 
-    fetchVenues();
-    }, []);
+    // Wait for the script to load before initializing the autocomplete
+    const handleScriptLoad = () => {
+      if (window.google) {
+        initAutocomplete();
+      } else {
+        setTimeout(handleScriptLoad, 100);
+      }
+    };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading venues: {error.message}</p>;
+    handleScriptLoad();
+  }, [query]);
 
   return (
-    <Box p={4}>
-      <Heading as="h1" size="xl" mb={4}>
-        PLANISPHERE
-      </Heading>
-      <Text mb={4}>Venues:</Text>
-      <VStack spacing ={4} align="stretch">
-      {venues.map((venue) => (
-          <Box key={venue.id} p={4} bg="purple.800" color="white" borderRadius="md" boxShadow="lg">
-            <Heading as="h2" size="md">{venue.name}</Heading>
-            <Text>{venue.description}</Text>
-            <Text>{venue.address}</Text>
-            <Text>{venue.phone_number}</Text>
-          </Box>
-        ))}
-      </VStack>
-    </Box>
+    <div>
+      <input
+        id="pac-input"
+        className="controls"
+        type="text"
+        placeholder="Search Box"
+        ref={searchInputRef}
+        style={{ marginBottom: '10px' }}
+      />
+      <div id="map" style={{ height: '400px', width: '100%', marginTop: '10px' }} ref={mapRef}></div>
+    </div>
   );
-}
+};
+
+export default Venues;
