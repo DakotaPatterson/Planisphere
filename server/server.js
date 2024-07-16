@@ -1,8 +1,10 @@
+require('dotenv').config(); 
 const express = require('express');
 const { ApolloServer } = require('@apollo/server'); // Updated import
 const { expressMiddleware } = require('@apollo/server/express4'); // Updated import
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
+
 
 const { typeDefs, resolvers } = require('./schemas');
 const connectDB = require('./config/connection'); // Import connectDB function
