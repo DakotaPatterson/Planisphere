@@ -2,16 +2,14 @@ import React from 'react';
 import {
   Box, 
   Flex, 
+  Link,
   Heading, 
   Text, 
-  Button, 
   Grid, 
   GridItem, 
   Tabs, 
   TabList, 
   Tab, 
-  TabPanels, 
-  TabPanel,
   extendTheme
 } from '@chakra-ui/react';
 import { ChakraProvider } from '@chakra-ui/react';
@@ -78,48 +76,10 @@ export default function Home() {
 
         <Tabs variant="enclosed">
           <TabList>
-            <Tab>Budget</Tab>
-            <Tab>Tasks</Tab>
-            <Tab>Venues</Tab>
+            <Tab as={Link} to="/budget">Budget</Tab>
+            <Tab as={Link} to="/tasks">Tasks</Tab>
+            <Tab as={Link} to="/venues">Venues</Tab>
           </TabList>
-          <TabPanels>
-            <TabPanel>
-              <Grid templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }} gap={6}>
-                <GridItem>
-                  <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" color="white">
-                    <Heading as="h3" size="md">Budget Details</Heading>
-                    <Box bg="blue.400" p={4} mt={4} borderRadius="md" height="100px">
-                      {/* Budget tab content goes here */}
-                    </Box>
-                  </Box>
-                </GridItem>
-              </Grid>
-            </TabPanel>
-            <TabPanel>
-              <Grid templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }} gap={6}>
-                <GridItem>
-                  <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" color="white">
-                    <Heading as="h3" size="md">Task Management</Heading>
-                    <Box bg="blue.400" p={4} mt={4} borderRadius="md" height="100px">
-                      {/* Tasks tab content goes here */}
-                    </Box>
-                  </Box>
-                </GridItem>
-              </Grid>
-            </TabPanel>
-            <TabPanel>
-              <Grid templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }} gap={6}>
-                <GridItem>
-                  <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" color="white">
-                    <Heading as="h3" size="md">Venue Selection</Heading>
-                    <Box bg="blue.400" p={4} mt={4} borderRadius="md" height="100px">
-                      {/* Venues tab content goes here */}
-                    </Box>
-                  </Box>
-                </GridItem>
-              </Grid>
-            </TabPanel>
-          </TabPanels>
         </Tabs>
 
         <Grid templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }} gap={6}>
