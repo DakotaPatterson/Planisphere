@@ -11,8 +11,10 @@ import {
   TabList, 
   Tab, 
   TabPanels, 
-  TabPanel
+  TabPanel,
+  extendTheme
 } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 //import LoginPage from './LoginPage';
 //import RegisterPage from './RegisterPage';
 import Footer from '../components/Footer';

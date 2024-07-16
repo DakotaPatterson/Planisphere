@@ -10,7 +10,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { Outlet } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
-import NavBar from './components/navigation'; // Adjust path as necessary
+//import NavBar from './components/navigation'; // Adjust path as necessary
 
 const httpLink = createHttpLink({
   uri: '/graphql',
