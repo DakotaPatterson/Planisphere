@@ -10,7 +10,7 @@ function LoginPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Here, you would normally call your backend API
+    if (!email || !password) {
     toast({
       title: "Login Attempt",
       description: `Email: ${email}, Password: ${password}`,
@@ -18,7 +18,45 @@ function LoginPage() {
       duration: 9000,
       isClosable: true,
     });
-  };
+    return;
+  }
+
+  setIsLoading(true); // Set loading to true when the API call begins
+  try {
+    // Call the backend API to perform login
+    const response = await fetch('https://your-backend-api.com/login', {
+      method: 'POST', // POST method to send data to the server
+      headers: {
+        'Content-Type': 'application/json' 
+      },
+      body: JSON.stringify({ email, password }) 
+    });
+
+    if (!response.ok) { // Check if the response was not successful
+      throw new Error('Network response was not ok'); // Throw an error if response is not ok
+    }
+
+    const data = await response.json(); // Parse JSON response from the server
+    toast({ // Show success toast notification
+      title: "Login Successful",
+      description: `Welcome ${data.user.name}!`, // Adjust according to actual response structure
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+    });
+  } catch (error) { // Catch any errors during the fetch call
+    toast({ // Show error toast notification
+      title: "Login Failed",
+      description: error.message || "Failed to connect to the service",
+      status: "error",
+      duration: 5000,
+      isClosable: true,
+    });
+  } finally {
+    setIsLoading(false); // Set loading to false after the API call is finished
+  }
+};
+
 
   return (
     <Box minH="100vh" display="flex" alignItems="center" justifyContent="center">
