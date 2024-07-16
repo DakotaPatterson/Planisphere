@@ -93,10 +93,13 @@ export default function Home() {
         <Tabs variant="enclosed">
           <TabList>
             <Tab>
+              <ChakraLink as={Link} to="/home">Home</ChakraLink>
+            </Tab>
+            <Tab>
               <ChakraLink as={Link} to="/budget">Budget</ChakraLink>
             </Tab>
             <Tab> 
-              <ChakraLink as={Link} to="/tasks">Tasks</ChakraLink>
+              <ChakraLink as={Link} to="/tasks">Task</ChakraLink>
             </Tab>
             <Tab>
               <ChakraLink as={Link} to="/venues">Venues</ChakraLink>
@@ -105,8 +108,9 @@ export default function Home() {
         </Tabs>
 
         <Routes>
+            <Route path="/home" element={Home} />
             <Route path="/budget" component={Budget} />
-            <Route path="/tasks" component={Task} />
+            <Route path="/task" component={Task} />
             <Route path="/venues" component={Venues} />
           </Routes>
 
