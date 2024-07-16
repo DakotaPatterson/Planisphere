@@ -1,6 +1,5 @@
 const { Profile } = require('../models');
 const { Budget } = require('../models');
-const { getVenues } = require('../utils/foursquare');
 
 const { signToken, AuthenticationError } = require('../utils/auth');
 
