@@ -96,13 +96,13 @@ export default function Home() {
         <Tabs variant="enclosed">
           <TabList>
             <Tab>
-              <ChakraLink as={Link} to="/home">Home</ChakraLink>
+              <ChakraLink as={Link} to="/">Home</ChakraLink>
             </Tab>
             <Tab>
               <ChakraLink as={Link} to="/budget">Budget</ChakraLink>
             </Tab>
             <Tab>
-              <ChakraLink as={Link} to="/task">Tasks</ChakraLink>
+              <ChakraLink as={Link} to="/task">Task</ChakraLink>
             </Tab>
             <Tab>
               <ChakraLink as={Link} to="/venues">Venues</ChakraLink>
