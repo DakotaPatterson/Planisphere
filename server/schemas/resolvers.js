@@ -1,5 +1,7 @@
 const { Profile } = require('../models');
 const { Budget } = require('../models');
+const { getVenues } = require('../utils/foursquare');
+
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -22,7 +24,15 @@ const resolvers = {
     getBudget: async () => {
       return await Budget.findOne();
     },
+    getVenuesByEventType: async (_, { eventType, location }) => {
+      try {
+        return await getVenues(eventType, location);
+      } catch (error) {
+        console.error(`Failed to fetch venues: ${error.message}`);
+        throw new Error('Failed to fetch venues');
+    }
   },
+},
 
   Mutation: {
     addProfile: async (parent, { name, email, password }) => {

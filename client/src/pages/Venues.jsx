@@ -1,56 +1,68 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Heading, Text, VStack } from '@chakra-ui/react';
+import { useQuery, gql } from '@apollo/client';
+import { Box, Input, Button, Text, VStack } from '@chakra-ui/react';
 import { set } from 'mongoose';
 
-export default function Venues() {
-  const [venues, setVenue] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchVenues = async () => {
-      try {
-        const response = await fetch('https://api.designmynight.com/v4/venues', {
-          headers: {
-            Authorization: ''
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-        setVenues(data);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
+const GET_VENUES_BY_EVENT_TYPE = gql`
+  query GetVenuesByEventType($eventType: String!, $location: String!) {
+    getVenuesByEventType(eventType: $eventType, location: $location) {
+      id
+      name
+      location {
+        address
+        lat
+        lng
       }
-    };
+      categories {
+        name
+      }
+    }
+  }
+`;
 
-    fetchVenues();
-    }, []);
+const VenueList = () => {
+  const [eventType, setEventType] = useState('');
+  const [location, setLocation] = useState('');
+  const { loading, error, data, refetch } = useQuery(GET_VENUES_BY_EVENT_TYPE, {
+    variables: { eventType, location },
+    skip: !eventType || !location,
+  });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading venues: {error.message}</p>;
+  const handleSearch = () => {
+    refetch();
+  };
 
   return (
-    <Box p={4}>
-      <Heading as="h1" size="xl" mb={4}>
-        PLANISPHERE
-      </Heading>
-      <Text mb={4}>Venues:</Text>
-      <VStack spacing ={4} align="stretch">
-      {venues.map((venue) => (
-          <Box key={venue.id} p={4} bg="purple.800" color="white" borderRadius="md" boxShadow="lg">
-            <Heading as="h2" size="md">{venue.name}</Heading>
-            <Text>{venue.description}</Text>
-            <Text>{venue.address}</Text>
-            <Text>{venue.phone_number}</Text>
-          </Box>
-        ))}
+    <Box>
+      <VStack spacing={4}>
+        <Input
+          placeholder="Enter event type"
+          value={eventType}
+          onChange={(e) => setEventType(e.target.value)}
+        />
+        <Input
+          placeholder="Enter location"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />
+        <Button onClick={handleSearch}>Search Venues</Button>
+
+        {loading && <Text>Loading...</Text>}
+        {error && <Text>Error: {error.message}</Text>}
+        {data && (
+          <VStack spacing={4}>
+            {data.getVenuesByEventType.map((venue) => (
+              <Box key={venue.id} p={4} borderWidth={1} borderRadius="lg">
+                <Text fontSize="xl">{venue.name}</Text>
+                <Text>{venue.location.address}</Text>
+                <Text>{venue.categories.map((category) => category.name).join(', ')}</Text>
+              </Box>
+            ))}
+          </VStack>
+        )}
       </VStack>
     </Box>
   );
-}
+};
+
+export default VenueList;
