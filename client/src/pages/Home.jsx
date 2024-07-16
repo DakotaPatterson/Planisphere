@@ -11,13 +11,19 @@ import {
   TabList, 
   Tab, 
   extendTheme,
-  Image
+  Image,
 } from '@chakra-ui/react';
 import { ChakraProvider } from '@chakra-ui/react';
+import { Routes, Route, Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 
 // Load the Kimberley BL font
 import "../shared/fonts/kimberley bl.otf";
+
+// Import page components
+import Budget from "../pages/Budget";
+import Task from "../pages/Task";
+import Venues from "../pages/Venues";
 
 // Import images
 import weddingDalmatians from "../shared/images/wedding.png";
@@ -55,17 +61,6 @@ const customTheme = extendTheme({
   },
 });
 
-function Budget() {
-  return <Text>Budget content goes here</Text>;
-}
-
-function Tasks() {
-  return <Text>Tasks content goes here</Text>;
-}
-
-function Venues() {
-  return <Text>Venues content goes here</Text>;
-}
 
 export default function Home() {
   return (
@@ -103,11 +98,11 @@ export default function Home() {
           </TabList>
         </Tabs>
 
-        <Switch>
+        <Routes>
             <Route path="/budget" component={Budget} />
-            <Route path="/tasks" component={Tasks} />
+            <Route path="/tasks" component={Task} />
             <Route path="/venues" component={Venues} />
-          </Switch>
+          </Routes>
 
         <Grid templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }} gap={6}>
           {/* Weddings Box */}
