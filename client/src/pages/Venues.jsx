@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useSearchParams  } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Box, Button, Input, VStack, Text, FormControl, FormLabel } from '@chakra-ui/react';
 import '../shared/style.css';
 
 const Venues = () => {
-  const [searchParams]= useSearchParams();
-  const query = searchParams.get('search');
+  const { query } = useParams();
   const mapRef = useRef(null);
   const searchInputRef = useRef(null);
 
-  
+  // State for manual entry of venue details
   const [venueDetails, setVenueDetails] = useState({
     name: '',
     address: '',
@@ -28,7 +27,7 @@ const Venues = () => {
       document.head.appendChild(script);
     };
 
-    loadScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places');
+    loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyBvy9me7c3hb-Ma60EjLhOXvkXVlj--xI8&loading=async&libraries=places&callback=initMap");
 
     // Initialize the map and search box after the script has loaded
     const initAutocomplete = () => {
@@ -91,14 +90,14 @@ const Venues = () => {
             bounds.extend(place.geometry.location);
           }
 
-          
-          setVenueDetails((prevDetails) => ({
-            ...prevDetails,
+          // Update state with place details
+          setVenueDetails({
             name: place.name,
             address: place.formatted_address,
             phone: place.international_phone_number || '',
             website: place.website || '',
-          }));
+            event: venueDetails.event
+          });
         });
         map.fitBounds(bounds);
       });
@@ -120,7 +119,7 @@ const Venues = () => {
     };
 
     handleScriptLoad();
-  }, [query]);
+  }, [query, venueDetails.event]);
 
   // Handle input changes for manual venue details
   const handleInputChange = (e) => {
@@ -131,9 +130,9 @@ const Venues = () => {
     }));
   };
 
-  // Save the venue information
+  // Save the venue information (e.g., to a server or local storage)
   const handleSaveVenue = () => {
-    // Implement saving logic here
+    // Implement saving logic here (e.g., API call to save venue details)
     console.log('Venue Details:', venueDetails);
   };
 
