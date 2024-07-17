@@ -3,10 +3,10 @@ import { Box, Heading, Text, Button, VStack } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Error() {
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleGoBack = () => {
-    history.push('/');
+    navigate('/');
   };
 
   return (
