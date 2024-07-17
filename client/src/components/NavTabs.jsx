@@ -8,7 +8,7 @@ import {
   Tabs,
   TabList,
   Tab,
-  extendTheme
+  extendTheme 
 } from '@chakra-ui/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { Routes, Route, Link } from 'react-router-dom';

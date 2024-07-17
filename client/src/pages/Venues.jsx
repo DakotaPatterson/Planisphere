@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useSearchParams  } from 'react-router-dom';
 import { Box, Button, Input, VStack, Text, FormControl, FormLabel } from '@chakra-ui/react';
 import '../shared/style.css';
 
 const Venues = () => {
-  const { query } = useParams();
+  const [searchParams]= useSearchParams();
+  const query = searchParams.get('search');
   const mapRef = useRef(null);
   const searchInputRef = useRef(null);
 
@@ -91,13 +92,13 @@ const Venues = () => {
           }
 
           
-          setVenueDetails({
+          setVenueDetails((prevDetails) => ({
+            ...prevDetails,
             name: place.name,
             address: place.formatted_address,
             phone: place.international_phone_number || '',
             website: place.website || '',
-            event: venueDetails.event
-          });
+          }));
         });
         map.fitBounds(bounds);
       });
@@ -119,7 +120,7 @@ const Venues = () => {
     };
 
     handleScriptLoad();
-  }, [query, venueDetails.event]);
+  }, [query]);
 
   // Handle input changes for manual venue details
   const handleInputChange = (e) => {
