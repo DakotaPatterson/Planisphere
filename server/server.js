@@ -17,6 +17,8 @@ const server = new ApolloServer({
 });
 
 const startApolloServer = async () => {
+
+  await connectDB(); // Connect to MongoDB before starting Apollo Server
  
   await server.start();
 
@@ -35,12 +37,10 @@ const startApolloServer = async () => {
     });
   }
 
-  connectDB.once("open", ()=> {
-    app.listen(PORT, () => {
-      console.log(`API server running on port ${PORT}!`);
-      console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
-    });
-  }); // Connect to MongoDB before starting Apollo Server
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
+    console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
+  });
   
 };
 
