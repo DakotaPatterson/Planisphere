@@ -160,6 +160,12 @@ This application was created by Mason Carr, Dakota Patterson, Kailee Segarra and
 
 ## Credits
 
+Credit goes to our class resources like mdn articles and our teachers for helping us troubleshoot on the fly in class, as well as to the team for working together productively:
+- Mason Carr
+- Dakota Patterson
+- Kailee Segarra
+- Stephanie Zolton
+
 ## Links
 
 Please follow the links below to our deployed application on Render, and our GitHub:
