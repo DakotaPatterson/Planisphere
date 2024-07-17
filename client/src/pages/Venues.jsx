@@ -1,11 +1,21 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
+import { Box, Button, Input, VStack, Text, FormControl, FormLabel } from '@chakra-ui/react';
 import '../shared/style.css';
 
 const Venues = () => {
   const { query } = useParams();
   const mapRef = useRef(null);
   const searchInputRef = useRef(null);
+
+  
+  const [venueDetails, setVenueDetails] = useState({
+    name: '',
+    address: '',
+    phone: '',
+    website: '',
+    event: ''
+  });
 
   useEffect(() => {
     // Load the Google Maps script
@@ -79,6 +89,15 @@ const Venues = () => {
           } else {
             bounds.extend(place.geometry.location);
           }
+
+          
+          setVenueDetails({
+            name: place.name,
+            address: place.formatted_address,
+            phone: place.international_phone_number || '',
+            website: place.website || '',
+            event: venueDetails.event
+          });
         });
         map.fitBounds(bounds);
       });
@@ -100,7 +119,22 @@ const Venues = () => {
     };
 
     handleScriptLoad();
-  }, [query]);
+  }, [query, venueDetails.event]);
+
+  // Handle input changes for manual venue details
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setVenueDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value,
+    }));
+  };
+
+  // Save the venue information
+  const handleSaveVenue = () => {
+    // Implement saving logic here
+    console.log('Venue Details:', venueDetails);
+  };
 
   return (
     <div>
@@ -113,6 +147,57 @@ const Venues = () => {
         style={{ marginBottom: '10px' }}
       />
       <div id="map" style={{ height: '400px', width: '100%', marginTop: '10px' }} ref={mapRef}></div>
+
+      {/* Manual Entry Form */}
+      <VStack spacing={4} p={4} align="stretch">
+        <Text fontSize="2xl">Enter Venue Information Manually</Text>
+        <FormControl id="venue-name">
+          <FormLabel>Name</FormLabel>
+          <Input
+            name="name"
+            placeholder="Venue Name"
+            value={venueDetails.name}
+            onChange={handleInputChange}
+          />
+        </FormControl>
+        <FormControl id="venue-address">
+          <FormLabel>Address</FormLabel>
+          <Input
+            name="address"
+            placeholder="Venue Address"
+            value={venueDetails.address}
+            onChange={handleInputChange}
+          />
+        </FormControl>
+        <FormControl id="venue-phone">
+          <FormLabel>Phone Number</FormLabel>
+          <Input
+            name="phone"
+            placeholder="Phone Number"
+            value={venueDetails.phone}
+            onChange={handleInputChange}
+          />
+        </FormControl>
+        <FormControl id="venue-website">
+          <FormLabel>Website</FormLabel>
+          <Input
+            name="website"
+            placeholder="Website"
+            value={venueDetails.website}
+            onChange={handleInputChange}
+          />
+        </FormControl>
+        <FormControl id="event-name">
+          <FormLabel>Event</FormLabel>
+          <Input
+            name="event"
+            placeholder="Event Name"
+            value={venueDetails.event}
+            onChange={handleInputChange}
+          />
+        </FormControl>
+        <Button onClick={handleSaveVenue} colorScheme="blue">Save Venue</Button>
+      </VStack>
     </div>
   );
 };
