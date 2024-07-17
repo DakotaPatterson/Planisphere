@@ -10,7 +10,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { Outlet } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
-//import NavBar from './components/navigation'; // Adjust path as necessary
+import NavBar from './components/NavTabs'; 
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -35,7 +35,7 @@ function App() {
   return (
   <ApolloProvider client={client}>
     <ChakraProvider>
-        {/* <NavBar /> Include NavBar outside of Routes */}
+        <NavBar />
         <Outlet />
     </ChakraProvider>
   </ApolloProvider>

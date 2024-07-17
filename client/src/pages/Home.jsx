@@ -1,20 +1,14 @@
 import React from 'react';
 import {
   Box,
-  Flex,
-  Link as ChakraLink,
   Heading,
-  Text,
   Grid,
   GridItem,
-  Tabs,
-  TabList,
-  Tab,
   extendTheme,
   Image,
 } from '@chakra-ui/react';
 import { ChakraProvider } from '@chakra-ui/react';
-import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 
 // Load the Kimberley BL font
@@ -75,41 +69,7 @@ export default function Home() {
   return (
     <ChakraProvider theme={customTheme}>
       <Box p={4} bg="blue.800">
-        <Flex justify="center" alignItems="center" mb={6}>
-          <Heading
-            as="h1"
-            size="4xl"
-            color="white"
-            textAlign="center"
-            flex="1"
-            width={{ base: "100%", md: "70%" }}
-            maxWidth="70%"
-          >
-            PLANISPHERE
-          </Heading>
-        </Flex>
-
-        <Text fontSize="2xl" mb={6} color="orange.300" textAlign="center">
-          WHERE EVERY EVENT FINDS ITS ORBIT
-        </Text>
-
-        <Tabs variant="enclosed">
-          <TabList>
-            <Tab>
-              <ChakraLink as={Link} to="/">Home</ChakraLink>
-            </Tab>
-            <Tab>
-              <ChakraLink as={Link} to="/Budget">Budget</ChakraLink>
-            </Tab>
-            <Tab> 
-              <ChakraLink as={Link} to="/Task">Tasks</ChakraLink>
-            </Tab>
-            <Tab>
-              <ChakraLink as={Link} to="/Venues">Venues</ChakraLink>
-            </Tab>
-          </TabList>
-        </Tabs>
-
+      
           <Routes>
             <Route path="/" element={Home} />
             <Route path="/Budget" component={Budget} />
