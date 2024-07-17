@@ -62,8 +62,8 @@ const customTheme = extendTheme({
 export default function Home() {
   const navigate = useNavigate();
 
-  const handleButtonClick = (heading) => {
-    navigate(`/venues/${heading}`);
+  const handleButtonClick = (keywords) => {
+    navigate(`/venues?search=${encodeURIComponent(keywords)}`);
   };
 
   return (
@@ -82,7 +82,7 @@ export default function Home() {
           {/* Weddings Box */}
           <GridItem>
             <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Weddings")}>
+              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Wedding venues")}>
                 <Heading as="h3" size="md" color="white" textAlign="center">
                   WEDDINGS
                 </Heading>
@@ -96,7 +96,7 @@ export default function Home() {
           {/* Funerals Box */}
           <GridItem>
             <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Funerals")}>
+              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Funeral venues")}>
                 <Heading as="h3" size="md" color="white" textAlign="center">
                   FUNERALS
                 </Heading>
@@ -110,7 +110,7 @@ export default function Home() {
           {/* Birthdays Box */}
           <GridItem>
             <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Bach Parties")}>
+              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Birthday venues")}>
                 <Heading as="h3" size="md" color="white" textAlign="center">
                   BIRTHDAYS
                 </Heading>
@@ -124,7 +124,7 @@ export default function Home() {
           {/* Bach Parties Box */}
           <GridItem>
             <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Bach Parties")}>
+              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("bachelor party venues")}>
                 <Heading as="h3" size="md" color="white" textAlign="center">
                   BACH PARTIES
                 </Heading>
@@ -138,7 +138,7 @@ export default function Home() {
           {/* Graduations Box */}
           <GridItem>
             <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Bach Parties")}>
+              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Graduation Party Venues")}>
                 <Heading as="h3" size="md" color="white" textAlign="center">
                   GRADUATIONS
                 </Heading>
@@ -152,7 +152,7 @@ export default function Home() {
           {/* Create Your Own Event Box */}
           <GridItem>
             <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Bach Parties")}>
+              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("venues")}>
                 <Heading as="h3" size="md" color="white" textAlign="center">
                   CREATE YOUR OWN EVENT
                 </Heading>
