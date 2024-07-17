@@ -59,18 +59,24 @@ Here was the beginning of our building the site -- we started with the wireframe
 ![user-story](./client/src/shared/images/user-story.jpg)
 
 As a user, I need to plan an event.
+
 I want a single place to organize my event,
 So that I can organize my thoughts and keep track of venue, budget, and tasks. 
+
 Given an event planner site,
 When I log into the site,
 Then I am shown my home page w/ my events.
+
 When I click to add an event,
 Then I am presented with a page to get started.
+
 When I go to organize my tasks,
-Then I am apple to go to a separate area for setting tasksm
+Then I am apple to go to a separate area for setting tasks.
+
 When I need to sort my budget,
 Then I go to the budget section to set and manage my expenses or tasks.
-When I need to find a venuem
+
+When I need to find a venue,
 Then I can look at multiple venues to choose from.
 
 Next, we started building the site. Here's a few screenshots of our working process:
@@ -127,7 +133,9 @@ The individual event tabs take you to a specific venue for that type of event:
 
 ## In conclusion
 
-In conclusion, we built an application from the ground-up that meets the project requirements. It:
+In conclusion, we built an application from the ground-up that meets the project requirements. We worked collaboratively to create a really cool portfolio piece.
+
+It:
 - Uses react for the front end
 - Uses GraphQL with a Node.js and Express.js server
 - Uses MongoDB and the Mongoose ODM for the database
