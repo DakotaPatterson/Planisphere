@@ -8,7 +8,8 @@ import {
   Tabs,
   TabList,
   Tab,
-  extendTheme 
+  extendTheme ,
+  Button
 } from '@chakra-ui/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { Routes, Route, Link } from 'react-router-dom';
@@ -54,6 +55,7 @@ const customTheme = extendTheme({
 
 export default function NavTabs() {
 
+
     return (
         <ChakraProvider theme={customTheme}>
         <Box p={4} bg="blue.800">
@@ -69,6 +71,10 @@ export default function NavTabs() {
             >
               PLANISPHERE
             </Heading>
+            <Box>
+                <Button as={Link} to="/loginPage">Login</Button>
+            </Box>
+  
           </Flex>
   
           <Text fontSize="2xl" mb={6} color="orange.300" textAlign="center">
@@ -91,7 +97,7 @@ export default function NavTabs() {
               </Tab>
             </TabList>
           </Tabs>
-  
+
             <Routes>
               <Route path="/" element={Home} />
               <Route path="/Budget" component={Budget} />
