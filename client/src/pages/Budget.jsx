@@ -91,45 +91,46 @@ const Budget = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
-  return (
-    <VStack spacing={4} p={4}>
-      <Text fontSize="2xl">Budget Planner</Text>
-      <Box w="100%">
-        <Input
-          placeholder="Total Budget"
-          value={totalBudget}
-          onChange={handleTotalChange}
-          mb={2}
-        />
-        {categories.map((category, index) => (
-          <Box key={index} display="flex" mb={2}>
-            <Input
-              placeholder="Category Name"
-              value={category.name}
-              onChange={(e) => handleCategoryChange(index, 'name', e.target.value)}
-              mr={2}
-            />
-            <Input
-              placeholder="Amount"
-              type="number"
-              value={category.amount}
-              onChange={(e) => handleCategoryChange(index, 'amount', e.target.value)}
-            />
-          </Box>
-        ))}
-        <Button onClick={addCategory} colorScheme="teal" w="100%" mb={2}>
-          Add Category
-        </Button>
-        <Button onClick={saveBudget} colorScheme="blue" w="100%">
-          Save Budget
-        </Button>
-      </Box>
-      <Box w="100%">
-        <Text fontSize="xl" mb={2}>Budget Breakdown</Text>
-        <Pie data={chartData} />
-      </Box>
-    </VStack>
-  );
-};
+    return (
+      <VStack spacing={4} p={4}>
+        <Text fontSize="2xl">Budget Planner</Text>
+        <Box w="100%">
+          <Input
+            placeholder="Total Budget"
+            value={totalBudget}
+            onChange={handleTotalChange}
+            mb={2}
+          />
+          {categories.map((category, index) => (
+            <Box key={index} display="flex" mb={2}>
+              <Input
+                placeholder="Category Name"
+                value={category.name}
+                onChange={(e) => handleCategoryChange(index, 'name', e.target.value)}
+                mr={2}
+              />
+              <Input
+                placeholder="Amount"
+                type="number"
+                value={category.amount}
+                onChange={(e) => handleCategoryChange(index, 'amount', e.target.value)}
+              />
+            </Box>
+          ))}
+          <Button onClick={addCategory} colorScheme="teal" w="100%" mb={2}>
+            Add Category
+          </Button>
+          <Button onClick={saveBudget} colorScheme="blue" w="100%">
+            Save Budget
+          </Button>
+        </Box>
+        <Box w="100%">
+          <Text fontSize="xl" mb={2}>Budget Breakdown</Text>
+          <Pie data={chartData} />
+        </Box>
+      </VStack>
+    );
+  };
+
 
 export default Budget;
