@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Task from './pages/Task';
 import Budget from './pages/Budget';
 import Venues from './pages/Venues';
+import LoginPage from './pages/LoginPage';
 
 // Function to set up router with NavBar
 const setupRouter = () => {
@@ -33,6 +34,10 @@ const setupRouter = () => {
         {
           path: '/Task',
           element: <Task />,
+        },
+        {
+          path: '/LoginPage',
+          element: <LoginPage />,
         },
       ],
     },
