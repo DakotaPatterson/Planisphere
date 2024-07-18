@@ -1,31 +1,17 @@
 import React from 'react';
 import {
   Box,
+  Flex,
   Heading,
-  Grid,
-  GridItem,
+  Text,
+  Tabs,
+  TabList,
+  Tab,
   extendTheme,
-  Image,
+  Button,
+  ChakraProvider,
 } from '@chakra-ui/react';
-import { ChakraProvider } from '@chakra-ui/react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import Footer from '../components/Footer';
-
-// Load the Kimberley BL font
-import "../shared/fonts/kimberley bl.otf";
-
-// Import page components
-import Budget from "../pages/Budget";
-import Task from "../pages/Task";
-import Venues from "../pages/Venues";
-
-// Import images
-import dwightBirthday from "../shared/images/birthdays.jpg";
-import hangoverBach from "../shared/images/bach.png";
-import puppyGrad from "../shared/images/graduation.jpg";
-import partyPlanning from "../shared/images/createown.jpg";
-import weddingDalmatians from "../shared/images/wedding.png";
-import llamaDeath from "../shared/images/funerals.png";
+import { Link } from 'react-router-dom';
 
 const customTheme = extendTheme({
   fonts: {
@@ -59,110 +45,65 @@ const customTheme = extendTheme({
   },
 });
 
-export default function Home() {
-  const navigate = useNavigate();
-
-  const handleButtonClick = (keywords) => {
-    navigate(`/venues?search=${encodeURIComponent(keywords)}`);
-  };
-
+export default function NavTabs() {
   return (
     <ChakraProvider theme={customTheme}>
       <Box p={4} bg="blue.800">
-        <Routes>
-          <Route path="/" element={Home} />
-          <Route path="/Budget" component={Budget} />
-          <Route path="/Task" component={Task} />
-          <Route path="/Venues" component={Venues} />
-        </Routes>
+        <Flex justify="center" alignItems="center" mb={6} direction={{ base: 'column', md: 'row' }}>
+          <Flex direction="column" alignItems="center" textAlign="center" flex="1">
+            <Heading
+              as="h1"
+              size={{ base: '2xl', md: '4xl' }} // Adjusted size for mobile
+              color="white"
+              maxWidth="70%"
+              mb={2}
+              whiteSpace="nowrap" // Keeps text on one line
+              overflow="hidden" // Prevents text overflow
+              textOverflow="ellipsis" // Ellipsis for overflow
+            >
+              PLANISPHERE
+            </Heading>
+            <Text fontSize="2xl" color="orange.300" textAlign="center" mb={4}>
+              WHERE EVERY EVENT FINDS ITS ORBIT
+            </Text>
+          </Flex>
+          <Box mt={{ base: 4, md: 0 }} ml={{ base: 0, md: 4 }}>
+            <Button as={Link} to="/loginPage">Login</Button>
+          </Box>
+        </Flex>
 
-        <Grid templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }} gap={6}>
-          {/* Weddings Box */}
-          <GridItem>
-            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Wedding venues")}>
-                <Heading as="h3" size="lg" color="white" textAlign="center">
-                  WEDDINGS
+        <Tabs variant="enclosed">
+          <TabList>
+            <Tab>
+              <Link to="/" style={{ textDecoration: 'none' }}>
+                <Heading as="h1" size="sm" color="white">
+                  Home
                 </Heading>
-              </Box>
-              <Box position="relative" height="300px">
-                <Image src={weddingDalmatians} alt="Wedding Dalmatians" w="100%" h="100%" objectFit="cover" borderRadius="md" maxW="100%" cursor='pointer' onClick={() => handleButtonClick("Wedding venues")} />
-              </Box>
-            </Box>
-          </GridItem>
-
-          {/* Funerals Box */}
-          <GridItem>
-            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Funeral venues")}>
-                <Heading as="h3" size="lg" color="white" textAlign="center">
-                  FUNERALS
+              </Link>
+            </Tab>
+            <Tab>
+              <Link to="/Budget" style={{ textDecoration: 'none' }}>
+                <Heading as="h1" size="sm" color="white">
+                  Budget
                 </Heading>
-              </Box>
-              <Box position="relative" height="300px">
-                <Image src={llamaDeath} alt="The poison for Kuzco. Kuzco's Poision." w="100%" h="100%" objectFit="cover" borderRadius="md" maxW="100%" cursor='pointer' onClick={() => handleButtonClick("Funeral venues")} />
-              </Box>
-            </Box>
-          </GridItem>
-
-          {/* Birthdays Box */}
-          <GridItem>
-            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Birthday venues")}>
-                <Heading as="h3" size="lg" color="white" textAlign="center">
-                  BIRTHDAYS
+              </Link>
+            </Tab>
+            <Tab>
+              <Link to="/Task" style={{ textDecoration: 'none' }}>
+                <Heading as="h1" size="sm" color="white">
+                  Tasks
                 </Heading>
-              </Box>
-              <Box position="relative" height="300px">
-                <Image src={dwightBirthday} alt="It is your birthday." w="100%" h="100%" objectFit="cover" borderRadius="md" maxW="100%" cursor='pointer' onClick={() => handleButtonClick("Birthday venues")} />
-              </Box>
-            </Box>
-          </GridItem>
-
-          {/* Bach Parties Box */}
-          <GridItem>
-            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("bachelor party venues")}>
-                <Heading as="h3" size="lg" color="white" textAlign="center">
-                  BACH PARTIES
+              </Link>
+            </Tab>
+            <Tab>
+              <Link to="/Venues" style={{ textDecoration: 'none' }}>
+                <Heading as="h1" size="sm" color="white">
+                  Venues
                 </Heading>
-              </Box>
-              <Box position="relative" height="300px">
-                <Image src={hangoverBach} alt="Hangover Bach Party" w="100%" h="100%" objectFit="cover" borderRadius="md" maxW="100%" cursor='pointer' onClick={() => handleButtonClick("bachelor party venues")} />
-              </Box>
-            </Box>
-          </GridItem>
-
-          {/* Graduations Box */}
-          <GridItem>
-            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Graduation Party Venues")}>
-                <Heading as="h3" size="lg" color="white" textAlign="center">
-                  GRADUATIONS
-                </Heading>
-              </Box>
-              <Box position="relative" height="300px">
-                <Image src={puppyGrad} alt="...now what." w="100%" h="100%" objectFit="cover" borderRadius="md" maxW="100%" cursor='pointer' onClick={() => handleButtonClick("Graduation Party Venues")} />
-              </Box>
-            </Box>
-          </GridItem>
-
-          {/* Create Your Own Event Box */}
-          <GridItem>
-            <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("venues")}>
-                <Heading as="h3" size="lg" color="white" textAlign="center">
-                  CREATE YOUR OWN EVENT
-                </Heading>
-              </Box>
-              <Box position="relative" height="300px">
-                <Image src={partyPlanning} alt="the party planning committee" w="100%" h="100%" objectFit="cover" borderRadius="md" maxW="100%" cursor='pointer' onClick={() => handleButtonClick("venues")} />
-              </Box>
-            </Box>
-          </GridItem>
-        </Grid>
-
-        <Footer mt={6} p={4} bg="blue.800" textAlign="center" />
+              </Link>
+            </Tab>
+          </TabList>
+        </Tabs>
       </Box>
     </ChakraProvider>
   );
