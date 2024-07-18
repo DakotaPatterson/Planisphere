@@ -82,8 +82,20 @@ export default function Home() {
           {/* Weddings Box */}
           <GridItem>
             <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Wedding venues")}>
-                <Heading as="h3" size="md" color="white" textAlign="center">
+              <Box
+                bg="blue.400"
+                p={4}
+                mt={4}
+                borderRadius="md"
+                minHeight="100px"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                cursor='pointer'
+                onClick={() => handleButtonClick("Wedding venues")}
+                _hover={{ bg: 'orange.400' }} // Hover effect
+              >
+                <Heading as="h3" size="lg" color="white" textAlign="center">
                   WEDDINGS
                 </Heading>
               </Box>
@@ -96,13 +108,25 @@ export default function Home() {
           {/* Funerals Box */}
           <GridItem>
             <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Funeral venues")}>
-                <Heading as="h3" size="md" color="white" textAlign="center">
+              <Box
+                bg="blue.400"
+                p={4}
+                mt={4}
+                borderRadius="md"
+                minHeight="100px"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                cursor='pointer'
+                onClick={() => handleButtonClick("Funeral venues")}
+                _hover={{ bg: 'orange.400' }} // Hover effect
+              >
+                <Heading as="h3" size="lg" color="white" textAlign="center">
                   FUNERALS
                 </Heading>
               </Box>
               <Box position="relative" height="300px">
-                <Image src={llamaDeath} alt="Llama Funeral" w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("Funeral venues")}/>
+                <Image src={llamaDeath} alt="The poison for Kuzco. Kuzco's Poision." w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("Funeral venues")}/>
               </Box>
             </Box>
           </GridItem>
@@ -110,13 +134,25 @@ export default function Home() {
           {/* Birthdays Box */}
           <GridItem>
             <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Birthday venues")}>
-                <Heading as="h3" size="md" color="white" textAlign="center">
+              <Box
+                bg="blue.400"
+                p={4}
+                mt={4}
+                borderRadius="md"
+                minHeight="100px"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                cursor='pointer'
+                onClick={() => handleButtonClick("Birthday venues")}
+                _hover={{ bg: 'orange.400' }} // Hover effect
+              >
+                <Heading as="h3" size="lg" color="white" textAlign="center">
                   BIRTHDAYS
                 </Heading>
               </Box>
               <Box position="relative" height="300px">
-                <Image src={dwightBirthday} alt="Bach Party" w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("Birthday venues")}/>
+                <Image src={dwightBirthday} alt="It is your birthday." w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("Birthday venues")}/>
               </Box>
             </Box>
           </GridItem>
@@ -124,13 +160,25 @@ export default function Home() {
           {/* Bach Parties Box */}
           <GridItem>
             <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("bachelor party venues")}>
-                <Heading as="h3" size="md" color="white" textAlign="center">
+              <Box
+                bg="blue.400"
+                p={4}
+                mt={4}
+                borderRadius="md"
+                minHeight="100px"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                cursor='pointer'
+                onClick={() => handleButtonClick("bachelor party venues")}
+                _hover={{ bg: 'orange.400' }} // Hover effect
+              >
+                <Heading as="h3" size="lg" color="white" textAlign="center">
                   BACH PARTIES
                 </Heading>
               </Box>
               <Box position="relative" height="300px">
-                <Image src={hangoverBach} alt="Bach Party" w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("bachelor party venues")}/>
+                <Image src={hangoverBach} alt="Hangover Bach Party" w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("bachelor party venues")}/>
               </Box>
             </Box>
           </GridItem>
@@ -138,13 +186,25 @@ export default function Home() {
           {/* Graduations Box */}
           <GridItem>
             <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("Graduation Party Venues")}>
-                <Heading as="h3" size="md" color="white" textAlign="center">
+              <Box
+                bg="blue.400"
+                p={4}
+                mt={4}
+                borderRadius="md"
+                minHeight="100px"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                cursor='pointer'
+                onClick={() => handleButtonClick("Graduation Party Venues")}
+                _hover={{ bg: 'orange.400' }} // Hover effect
+              >
+                <Heading as="h3" size="lg" color="white" textAlign="center">
                   GRADUATIONS
                 </Heading>
               </Box>
               <Box position="relative" height="300px">
-                <Image src={puppyGrad} alt="Bach Party" w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("Graduation Party Venues")}/>
+                <Image src={puppyGrad} alt="...now what." w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("Graduation Party Venues")}/>
               </Box>
             </Box>
           </GridItem>
@@ -152,13 +212,25 @@ export default function Home() {
           {/* Create Your Own Event Box */}
           <GridItem>
             <Box bg="blue.600" p={4} borderRadius="md" textAlign="center" height="100%">
-              <Box bg="blue.400" p={4} mt={4} borderRadius="md" minHeight="100px" display="flex" alignItems="center" justifyContent="center" cursor='pointer' onClick={() => handleButtonClick("venues")}>
-                <Heading as="h3" size="md" color="white" textAlign="center">
+              <Box
+                bg="blue.400"
+                p={4}
+                mt={4}
+                borderRadius="md"
+                minHeight="100px"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                cursor='pointer'
+                onClick={() => handleButtonClick("venues")}
+                _hover={{ bg: 'orange.400' }} // Hover effect
+              >
+                <Heading as="h3" size="lg" color="white" textAlign="center">
                   CREATE YOUR OWN EVENT
                 </Heading>
               </Box>
               <Box position="relative" height="300px">
-                <Image src={partyPlanning} alt="Bach Party" w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("venues")}/>
+                <Image src={partyPlanning} alt="the party planning committee" w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("venues")}/>
               </Box>
             </Box>
           </GridItem>
