@@ -82,19 +82,19 @@ See the screenshots below showcasing our wireframe, process to decide aesthetics
 
 ![process](./client/src/shared/images/process.png)
 
-Fun choosing images for the Home page:
+**Fun choosing images for the Home page:**
 
 <img src="./client/src/shared/images/image-selection.png" width="300" alt="image selection process">
 
-Color palettes:
+**Color palettes:**
 
 <img src="./client/src/shared/images/color-palette.png" width="300" alt="color palette">
 
-Inspirational logo:
+**Inspirational logo:**
 
 <img src="./client/src/shared/images/planisphere_logo.png" width="400" alt="inspirational logo">
 
-Images added to Home page; adjusted to be within frame of box + responsive
+**Images added to Home page; adjusted to be within frame of box + responsive**
 
 <img src="./client/src/shared/images/process-2.png" width="400" alt="responsiveness of images">
 
@@ -106,27 +106,27 @@ Images added to Home page; adjusted to be within frame of box + responsive
 
 <img src="./client/src/shared/images/mobile.png" height="300" alt="mobile app">
 
-Our group struggled with errors as shown below that hindered the deployment process:
+**Our group struggled with errors as shown below that hindered the deployment process:**
 
 <img src="./client/src/shared/images/error.png" width="200" alt="error 1">
 
 <img src="./client/src/shared/images/error-2.png" width="200" alt="error 2">
 
-Find a venue using Google API:
+**Find a venue using Google API:**
 
 (Image coming soon)
 
-Create a To-Do list with the Task Page:
+**Create a To-Do list with the Task Page:**
 
 <img src="./client/src/shared/images/task-list.png" width="500" alt="task page">
 
-Financially plan your trip with the Budget Page:
+**Financially plan your trip with the Budget Page:**
 
-<img src="./client/src/shared/images/budget-page.png" width="700" alt="budget page 1">
+<img src="./client/src/shared/images/budget-page.png" height="500" alt="budget page 1">
 
 <img src="./client/src/shared/images/budget-page-2.png" width="700" alt="budget page 2">
 
-Event tabs take you to a venue specific ot that event: 
+**Event tabs take you to a venue specific ot that event**
 
 <img src="./client/src/shared/images/wedding-event-page.png" width="700" alt="wedding event page">
 
