@@ -27,6 +27,7 @@ import partyPlanning from "../shared/images/createown.jpg";
 import weddingDalmatians from "../shared/images/wedding.png";
 import llamaDeath from "../shared/images/funerals.png";
 
+//entended theme for custom font and tab styling
 const customTheme = extendTheme({
   fonts: {
     heading: "'Kimberley BL', sans-serif",
