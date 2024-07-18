@@ -50,13 +50,13 @@ Our project started with a wireframe, outlining the initial design elements incl
 
 ### Development Phases: 
 
-**User Story**
+_**User Story**_
 
-As a user, I need to plan an event.
+*As a user, I need to plan an event.*
 
-I want a single place to organize my event,
+*I want a single place to organize my event,*
 
-So that I can organize my thoughts and keep track of venue, budget, and tasks. 
+*So that I can organize my thoughts and keep track of venue, budget, and tasks.*
 
 
 Given an event planner site,
