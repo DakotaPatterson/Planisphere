@@ -16,7 +16,8 @@ const credentials = {
 };
 
 loginUser(credentials)
-    .then(data => console.log('user logged in successfully', data))
+    .then(data => {
+        console.log('user logged in successfully', data);
+        localStorage.setItem('token', data.token);
+    })
     .catch(error => console.error('login error', error));
-
-// do we need cookies for this?
