@@ -88,7 +88,7 @@ export default function Home() {
                 </Heading>
               </Box>
               <Box position="relative" height="300px">
-                <Image src={weddingDalmatians} alt="Wedding Dalmatians" w="100%" h="100%" objectFit="cover" borderRadius="md" />
+                <Image src={weddingDalmatians} alt="Wedding Dalmatians" w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("Wedding venues")}/>
               </Box>
             </Box>
           </GridItem>
@@ -102,7 +102,7 @@ export default function Home() {
                 </Heading>
               </Box>
               <Box position="relative" height="300px">
-                <Image src={llamaDeath} alt="Llama Funeral" w="100%" h="100%" objectFit="cover" borderRadius="md" />
+                <Image src={llamaDeath} alt="Llama Funeral" w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("Funeral venues")}/>
               </Box>
             </Box>
           </GridItem>
@@ -116,7 +116,7 @@ export default function Home() {
                 </Heading>
               </Box>
               <Box position="relative" height="300px">
-                <Image src={dwightBirthday} alt="Bach Party" w="100%" h="100%" objectFit="cover" borderRadius="md" />
+                <Image src={dwightBirthday} alt="Bach Party" w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("Birthday venues")}/>
               </Box>
             </Box>
           </GridItem>
@@ -130,7 +130,7 @@ export default function Home() {
                 </Heading>
               </Box>
               <Box position="relative" height="300px">
-                <Image src={hangoverBach} alt="Bach Party" w="100%" h="100%" objectFit="cover" borderRadius="md" />
+                <Image src={hangoverBach} alt="Bach Party" w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("bachelor party venues")}/>
               </Box>
             </Box>
           </GridItem>
@@ -144,7 +144,7 @@ export default function Home() {
                 </Heading>
               </Box>
               <Box position="relative" height="300px">
-                <Image src={puppyGrad} alt="Bach Party" w="100%" h="100%" objectFit="cover" borderRadius="md" />
+                <Image src={puppyGrad} alt="Bach Party" w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("Graduation Party Venues")}/>
               </Box>
             </Box>
           </GridItem>
@@ -158,7 +158,7 @@ export default function Home() {
                 </Heading>
               </Box>
               <Box position="relative" height="300px">
-                <Image src={partyPlanning} alt="Bach Party" w="100%" h="100%" objectFit="cover" borderRadius="md" />
+                <Image src={partyPlanning} alt="Bach Party" w="100%" h="100%" objectFit="cover" borderRadius="md" cursor='pointer' onClick={() => handleButtonClick("venues")}/>
               </Box>
             </Box>
           </GridItem>
